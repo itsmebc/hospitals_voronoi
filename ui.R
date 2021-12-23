@@ -1,8 +1,8 @@
 ui <- 
-  navbarPage("Reshaping the US using Voronoi tesselation",
+  navbarPage("Reshaping the US using Voronoi tessellation",
              tabPanel("Introduction",
                       sidebarLayout(
-                          sidebarPanel(
+                          sidebarPanel(width=3,
                           h3("What is it?"),
                           p("A Voronoi diagram sections an area into regions that are closest to a given set of points.
                             In this project, the given points used are hospital locations. Each region on the map is shaped
@@ -27,19 +27,23 @@ ui <-
                       )
              ),
               tabPanel("States",
-                       sidebarLayout(position="right",
+                       sidebarLayout(position="left",
                          sidebarPanel(width=3,
-                           h4("Controls"),
-                           br(),
                            selectInput("state", "Select state", states[,1]),
-                           radioButtons("switch", "Plot: ", choices = c("New", "Original")),
-                           checkboxGroupInput("checklist", "Type of Hospital:", choices = c("CRITICAL ACCESS", "LONG TERM CARE", "GENERAL ACUTE CARE"),
+                           checkboxGroupInput("checklist", "Hospital type:", choices = c("CRITICAL ACCESS", "LONG TERM CARE", "GENERAL ACUTE CARE"),
                                               selected = c("CRITICAL ACCESS", "LONG TERM CARE", "GENERAL ACUTE CARE")),
+                           radioButtons("switch", "Plot: ", choices = c("New", "Original")),
+                           
+                           hr(style = "border-top: 1px solid #000000;"),
+                           p("*Try experimenting with voronoi tessellations by double clicking to add your own hospitals!"),
+                           br(),
+                           radioButtons("add_hospital_type", "Hospital type: ", choices = c("CRITICAL ACCESS", "LONG TERM CARE", "GENERAL ACUTE CARE")),
                            actionButton("reset", "Reset")),
-                       mainPanel(width=9,
-                         plotOutput("map", click="add_hospital", brush="plot_hover"),
-                         verbatimTextOutput("info"),
-                         uiOutput("dynamic")),
+                       mainPanel(
+                         plotOutput("map", dblclick="add_hospital", brush="plot_drag", width="100%", height="800"),
+                         br(),
+                         tableOutput("hospital_list")),
+                         #tableOutput("check")),
                        )
              )
   )
