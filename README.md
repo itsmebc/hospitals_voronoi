@@ -1,4 +1,4 @@
-<h1>Reshaping the US using Voronoi tessellation</h1>
+<h1>Reshaping the US using Voronoi tessellation</h1> <h3><i>Work in progress</i></h3>
 
 <h3>What is it?</h3>
 A Voronoi diagram sections an area into regions that are closest to a given set of points. In this project, the given points used are hospital locations. Each region on the map is shaped according to the smallest distance to a hospital.
