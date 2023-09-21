@@ -6,7 +6,7 @@ A Voronoi diagram sections an area into regions that are closest to a given set 
 <br>
 
 <h3>Why?</h3>
-There are many areas in the US where immediate medical attention is impossible. According to a study* done by the Pew Research Center, the average rural American lives 10.5 miles from their nearest hospital. This project explores how the geography of the US would change if counties were abolished in favor of hospital centralization. 
+There are many areas in the US where immediate medical attention is impossible. According to a study* done by the Pew Research Center, the average rural American lives 10.5 miles from their nearest hospital. This project explores how the geography of the US would change if counties were replaced by vicinity to a hospital.
 
 <br>
 
